@@ -10,11 +10,12 @@ class MenuController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index()
     {
         $totalMonths = [];
         for ($i = 1; $i <= 12; $i++) {
-            $totalMonths["total" . date('M', mktime(0, 0, 0, $i, 1))] = Menu::whereMonth('tanggal', str_pad($i, 2, '0', STR_PAD_LEFT))->sum('total');
+            $total = Menu::whereMonth('tanggal', str_pad($i, 2, '0', STR_PAD_LEFT))->sum('total');
+            $totalMonths["total" . date('M', mktime(0, 0, 0, $i, 1))] = $total > 0 ? $total : '';
         }
 
         $data = [
@@ -23,7 +24,7 @@ class MenuController extends Controller
             'totalMonths' => $totalMonths,
             'totals' => Menu::sum('total'),
         ];
-        
+
         return view('menu.all', $data);
     }
 

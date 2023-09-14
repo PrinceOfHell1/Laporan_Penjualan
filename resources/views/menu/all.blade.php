@@ -74,39 +74,59 @@
                             @foreach ($makanan as $menu)
                                 <tr>
                                     <td>{{ $menu->menu }}</td>
+                                    @php
+                                        $sum = 0;
+                                    @endphp
                                     @foreach (range(1, 12) as $bulan)
                                         <td style="text-align: right;">
                                             @if (date('n', strtotime($menu->tanggal)) == $bulan)
                                                 {{ number_format($menu->total, 0, ',', ',') }}
+                                                @php
+                                                    $sum += $menu->total;
+                                                @endphp
                                             @endif
                                         </td>
                                     @endforeach
+                                    <td style="text-align: right;">
+                                        {{ number_format($sum, 0, ',', ',') }}
+                                    </td>
                                 </tr>
                             @endforeach
+
                             <tr>
                                 <td class="table-secondary" colspan="14"><b>Minuman</b></td>
                             </tr>
                             @foreach ($minuman as $menu)
                                 <tr>
                                     <td>{{ $menu->menu }}</td>
+                                    @php
+                                        $sum = 0;
+                                    @endphp
                                     @foreach (range(1, 12) as $bulan)
                                         <td style="text-align: right;">
                                             @if (date('n', strtotime($menu->tanggal)) == $bulan)
                                                 {{ number_format($menu->total, 0, ',', ',') }}
+                                                @php
+                                                    $sum += $menu->total;
+                                                @endphp
                                             @endif
                                         </td>
                                     @endforeach
+                                    <td style="text-align: right;">
+                                        {{ number_format($sum, 0, ',', ',') }}
+                                    </td>
                                 </tr>
                             @endforeach
                             <thead>
                                 <tr>
                                     <td class="table-secondary bg-dark text-white"><b>Total</b></td>
                                     @foreach ($totalMonths as $bulan => $total)
-                                        <td class="table-secondary text-right bg-dark text-white">
+                                        <td style="text-align: right;" class="table-secondary text-right bg-dark text-white">
                                             <b>{{ $total }}</b>
                                         </td>
                                     @endforeach
-                                    <td class="table-secondary text-right bg-dark text-white"><b>{{ $totals }}</b>
+                                    <td style="text-align: right;"
+                                        class="table-secondary text-right bg-dark text-white"><b>{{ $totals }}</b>
                                     </td>
                                 </tr>
                             </thead>
