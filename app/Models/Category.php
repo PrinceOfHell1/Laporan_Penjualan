@@ -9,9 +9,4 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Category extends Model
 {
     use HasFactory;
-
-    public function menu(): HasMany
-    {
-        return $this->hasMany(Menu::class);
-    }
 }

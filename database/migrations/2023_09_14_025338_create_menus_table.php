@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('menus', function (Blueprint $table) {
             $table->id();
             $table->string('menu');
-            $table->integer('total');
-            $table->foreignId('category_id');
-            $table->date('tanggal');
+            $table->integer('total')->nullable();
+            $table->string('category');
+            $table->date('tanggal')->nullable();
             $table->timestamps();
         });
     }

@@ -19,4 +19,5 @@ Route::get('/', function () {
 });
 
 Route::get('/data-penjualan',[MenuController::class, 'index']);
-Route::get('/data-penjualan-json',[MenuController::class, 'json']);
+Route::get('/data-penjualan/json-transaksi',[MenuController::class, 'jsonTransaksi']);
+Route::get('/data-penjualan/json-menu',[MenuController::class, 'jsonMenu']);

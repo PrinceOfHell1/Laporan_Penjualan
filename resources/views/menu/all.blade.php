@@ -30,7 +30,11 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-4">
-                        <a href="/data-penjualan-json" target="_blank" rel="Array Menu" class="btn btn-secondary">
+                        <a href="/data-penjualan/json-transaksi" target="_blank" rel="Array Menu"
+                            class="btn btn-secondary">
+                            Json Transaksi
+                        </a>
+                        <a href="/data-penjualan/json-menu" target="_blank" rel="Array Menu" class="btn btn-secondary">
                             Json Menu
                         </a>
                     </div>
@@ -82,19 +86,22 @@
                                 <tr>
                                     <td>{{ $menu->menu }}</td>
                                     <td style="text-align: right;">
-                                        {{ number_format($menu->total, 0, ',', ',') }}
+                                        {{ $menu->total }}
                                     </td>
                                 </tr>
                             @endforeach
-                            <tr>
-                                <td class="table-secondary"><b>Total</b></td>
-                                @foreach ($totalMonths as $bulan => $total)
-                                    <td style="text-align: right;" class="table-secondary"><b>{{ $total }}</b>
+                            <thead>
+                                <tr>
+                                    <td class="table-secondary bg-dark text-white"><b>Total</b></td>
+                                    @foreach ($totalMonths as $bulan => $total)
+                                        <td class="table-secondary text-right bg-dark text-white">
+                                            <b>{{ $total }}</b>
+                                        </td>
+                                    @endforeach
+                                    <td class="table-secondary text-right bg-dark text-white"><b>{{ $totals }}</b>
                                     </td>
-                                @endforeach
-                                <td style="text-align: right;" class="table-secondary"><b>{{ $totals }}</b>
-                                </td>
-                            </tr>
+                                </tr>
+                            </thead>
                         </tbody>
                     </table>
                 </div>
@@ -102,8 +109,6 @@
 
         </div>
     </div>
-
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
