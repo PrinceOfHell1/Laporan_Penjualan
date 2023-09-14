@@ -48,6 +48,13 @@ class MenuSeeder extends Seeder
             'tanggal' => '2022-01-01'
         ]);
 
+        Menu::create([
+            'menu' => 'Babi Guling',
+            'total' => 1200000,
+            'category' => 'makanan',
+            'tanggal' => '2023-01-01'
+        ]);
+
 
         //MINUMAN
         Menu::create([
