@@ -74,9 +74,13 @@
                             @foreach ($makanan as $menu)
                                 <tr>
                                     <td>{{ $menu->menu }}</td>
-                                    <td style="text-align: right;">
-                                        {{ number_format($menu->total, 0, ',', ',') }}
-                                    </td>
+                                    @foreach (range(1, 12) as $bulan)
+                                        <td style="text-align: right;">
+                                            @if (date('n', strtotime($menu->tanggal)) == $bulan)
+                                                {{ number_format($menu->total, 0, ',', ',') }}
+                                            @endif
+                                        </td>
+                                    @endforeach
                                 </tr>
                             @endforeach
                             <tr>
@@ -85,9 +89,13 @@
                             @foreach ($minuman as $menu)
                                 <tr>
                                     <td>{{ $menu->menu }}</td>
-                                    <td style="text-align: right;">
-                                        {{ $menu->total }}
-                                    </td>
+                                    @foreach (range(1, 12) as $bulan)
+                                        <td style="text-align: right;">
+                                            @if (date('n', strtotime($menu->tanggal)) == $bulan)
+                                                {{ number_format($menu->total, 0, ',', ',') }}
+                                            @endif
+                                        </td>
+                                    @endforeach
                                 </tr>
                             @endforeach
                             <thead>

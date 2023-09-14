@@ -31,7 +31,7 @@ class MenuSeeder extends Seeder
             'menu' => 'Nasi Teriyaki',
             'total' => 20000,
             'category' => 'makanan',
-            'tanggal' => '2022-01-01'
+            'tanggal' => '2022-02-01'
         ]);
 
         Menu::create([

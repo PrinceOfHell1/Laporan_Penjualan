@@ -23,6 +23,7 @@ class MenuController extends Controller
             'totalMonths' => $totalMonths,
             'totals' => Menu::sum('total'),
         ];
+        
         return view('menu.all', $data);
     }
 
